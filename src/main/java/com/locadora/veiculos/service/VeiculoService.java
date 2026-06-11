@@ -17,9 +17,9 @@ public class VeiculoService {
     }
 
     public void Carros(){
-        carros.add(new Carro(2022, "X1", "BMW", 1200.00));
-        carros.add(new Carro(2018, "CLA-45", "MERCÊDES", 1600.0));
-        carros.add(new Carro(2018, "XC-60", "VOLVO", 900.0));
+        carros.add(new Carro(2022, "BMW", "X1", 1200.00));
+        carros.add(new Carro(2018, "MERCÊDES", "CLA-45", 1600.0));
+        carros.add(new Carro(2018, "VOLVO", "XC-60", 900.0));
 
     }
     public void Motocicletas(){
@@ -31,15 +31,23 @@ public class VeiculoService {
     public void listarCarros(){
         System.out.println("\n--- CARROS ---");
 
-        for (Carro carro : carros){
-            System.out.println(carro);
+        for (int i = 0; i < carros.size(); i++) {
+            System.out.println((i + 1) + "-\n" + carros.get(i));
         }
     }
     public void listarMotocicletas(){
         System.out.println("\n--- MOTOCICLETAS ---");
 
-        for(Motocicletas motocicletas : moto){
-            System.out.println(motocicletas);
+        for(int i = 0; i < moto.size(); i++){
+            System.out.println((i + 1)+"-\n"+ moto.get(i));
         }
+    }
+
+    public ArrayList<Carro> getCarros() {
+        return carros;
+    }
+
+    public ArrayList<Motocicletas> getMotocicletas(){
+        return moto;
     }
 }

@@ -1,5 +1,8 @@
 package com.locadora.veiculos.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,7 +12,7 @@ import java.util.Scanner;
 
 public class LocacaoService {
 
-    public void alugarVeiculo() {
+    public void alugarVeiculo() throws JsonProcessingException {
         System.out.println("--ALUGAR VEICULO--");
         System.out.println("\nPreencha com seus dados abaixo:");
         Scanner scDadosP = new Scanner(System.in);
@@ -20,9 +23,14 @@ public class LocacaoService {
         System.out.println("CEP:");
         String cep = scDadosP.nextLine();
         VerificarCepService verificarCep = new VerificarCepService();
-        verificarCep.ConsultarCep(cep);
 
+        String json = verificarCep.ConsultarCep(cep);
 
+        ObjectMapper mapper = new ObjectMapper();
+        DadosClienteService dados =
+                mapper.readValue(json, DadosClienteService.class);
 
+        System.out.println(dados);
+        
     }
 }
