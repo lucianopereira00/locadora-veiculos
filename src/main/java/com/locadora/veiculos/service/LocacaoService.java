@@ -30,7 +30,8 @@ public class LocacaoService {
         DadosClienteService dados =
                 mapper.readValue(json, DadosClienteService.class);
 
-        System.out.println(dados);
+        System.out.println("\nDADOS DO CLIENTE : "+
+                nome+"\n"+dados);
         
     }
 }
