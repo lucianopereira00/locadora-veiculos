@@ -5,28 +5,37 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
 
-public class VerificarCepService{
+public class VerificarCepService {
 
-//    private final String URL = "https://viacep.com.br/ws/";1
-      //private String cep;
-//    private final String API_KEY = "&apikey=1ac5d52f&";
+    public String ConsultarCep() {
 
-
-    public String ConsultarCep(String cep) {
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://viacep.com.br/ws/" + cep + "/json/"))
-                .build();
-        try {
-            HttpResponse<String> response = client
-                    .send(request, HttpResponse.BodyHandlers.ofString());
-            return response.body();
+        Scanner sc = new Scanner(System.in);
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        while (true) {
+            System.out.print("Digite o CEP (8 números): ");
+            String cep = sc.nextLine();
+
+            if (!cep.matches("\\d{8}")) {
+                System.out.println("CEP inválido! Digite exatamente 8 números.");
+                continue;
+            }
+            try {
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create("https://viacep.com.br/ws/" + cep + "/json/"))
+                        .build();
+
+                HttpResponse<String> response = client.send(
+                        request,
+                        HttpResponse.BodyHandlers.ofString()
+                );
+                return response.body();
+
+            } catch (IOException | InterruptedException e) {
+                throw new RuntimeException("Erro ao consultar CEP", e);
+            }
         }
     }
 }

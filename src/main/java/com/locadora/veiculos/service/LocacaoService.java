@@ -24,7 +24,7 @@ public class LocacaoService {
         String cep = scDadosP.nextLine();
         VerificarCepService verificarCep = new VerificarCepService();
 
-        String json = verificarCep.ConsultarCep(cep);
+        String json = verificarCep.ConsultarCep();
 
         ObjectMapper mapper = new ObjectMapper();
         DadosClienteService dados =
