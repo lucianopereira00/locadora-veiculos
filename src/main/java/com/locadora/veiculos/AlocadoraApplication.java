@@ -2,7 +2,6 @@ package com.locadora.veiculos;
 
 import com.locadora.veiculos.service.LocacaoService;
 import com.locadora.veiculos.service.MenuInicialService;
-import com.locadora.veiculos.service.VeiculoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

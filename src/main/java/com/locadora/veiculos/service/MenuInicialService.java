@@ -39,6 +39,7 @@ public class MenuInicialService {
                 break;
         }
         sc.nextLine();
+        System.out.println("OS VALORES SÃO POR DIA!\n");
         System.out.println("Deseja continuar para alugar seu veiculo? (S/N)");
         String respContinuacao = sc.nextLine();
         if (!respContinuacao.equalsIgnoreCase("S")) {

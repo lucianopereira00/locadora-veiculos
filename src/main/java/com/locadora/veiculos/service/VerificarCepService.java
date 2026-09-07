@@ -21,6 +21,9 @@ public class VerificarCepService {
             if (!cep.matches("\\d{8}")) {
                 System.out.println("CEP inválido! Digite exatamente 8 números.");
                 continue;
+            }else {
+                System.out.println("\n--CEP VÁLIDO--\n");
+                new ProcessoPagamentoService().iniciarPagamento();
             }
             try {
                 HttpRequest request = HttpRequest.newBuilder()
