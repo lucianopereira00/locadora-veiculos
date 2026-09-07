@@ -1,5 +1,7 @@
 package com.locadora.veiculos.service;
 
+import com.locadora.veiculos.service.ProcessoPagamento.ProcessoPagamentoService;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
