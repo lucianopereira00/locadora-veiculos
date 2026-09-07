@@ -20,8 +20,6 @@ public class LocacaoService {
         System.out.println("NOME:");
         String nome = scDadosP.nextLine();
 
-        System.out.println("CEP:");
-        String cep = scDadosP.nextLine();
         VerificarCepService verificarCep = new VerificarCepService();
 
         String json = verificarCep.ConsultarCep();
